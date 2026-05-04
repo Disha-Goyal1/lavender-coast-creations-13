@@ -14,18 +14,21 @@ WORKDIR /app
 # Copy backend
 COPY backend ./backend
 
-# Copy frontend build
-COPY --from=build /app/dist ./public
+# Copy frontend build (IMPORTANT CHANGE)
+COPY --from=build /app/dist ./dist
 
-# Install dependencies
+# Install backend dependencies
 WORKDIR /app/backend
 RUN npm install
 
 # Install serve
 RUN npm install -g serve
 
+# Go back to root
+WORKDIR /app
+
 # Expose ports
 EXPOSE 3000 5000
 
-# Run both safely
-CMD ["sh", "-c", "node server.js & serve -s /app/public -l 3000"]
+# Run both
+CMD ["sh", "-c", "node backend/server.js & serve -s dist -l 3000"]
