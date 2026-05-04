@@ -4,6 +4,9 @@ import plushie from "@/assets/product-plushie.jpg";
 import top from "@/assets/product-top.jpg";
 import headband from "@/assets/product-headband.jpg";
 import flowers from "@/assets/product-flowers.jpg";
+import lipbalm from "@/assets/product-lipbalm.jpg";
+import bowKeychain from "@/assets/product-bow-keychain.jpg";
+import octopus from "@/assets/product-octopus.jpg";
 
 export type Category = "Accessories" | "Clothing" | "Gifts";
 
@@ -76,6 +79,35 @@ export const products: Product[] = [
     description:
       "A keepsake bouquet of crocheted blooms. Lasts forever — no water needed.",
     badge: "new",
+  },
+  {
+    id: "lipbalm-holder",
+    name: "Lip Balm Holder Keychain",
+    price: 299,
+    image: lipbalm,
+    category: "Accessories",
+    description:
+      "A snug little crocheted pouch that keeps your favourite lip balm clipped to your bag. Soft lilac cotton with a gold keyring.",
+    badge: "new",
+  },
+  {
+    id: "bow-keychain",
+    name: "Dainty Bow Keychain",
+    price: 249,
+    image: bowKeychain,
+    category: "Accessories",
+    description:
+      "A petite hand-tied crochet bow on a gold ring. The sweetest little finishing touch for your keys or bag.",
+  },
+  {
+    id: "octopus-amigurumi",
+    name: "Little Lavender Octopus",
+    price: 599,
+    image: octopus,
+    category: "Accessories",
+    description:
+      "A smiley amigurumi octopus with curly tentacles, hand-stitched in soft lavender cotton. Tiny, huggable, full of charm.",
+    badge: "best",
   },
 ];
 
