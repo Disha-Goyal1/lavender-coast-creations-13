@@ -1,17 +1,27 @@
-FROM node:20-alpine AS builder
+# Build frontend
+FROM node:18-alpine as build
+
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npm run build
+
+# Run backend + nginx
+FROM node:18-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
+# Copy backend
+COPY backend ./backend
+WORKDIR /app/backend
 RUN npm install
 
-COPY . .
-RUN npm run build
+# Copy frontend build
+WORKDIR /app
+COPY --from=build /app/dist ./public
 
-FROM nginx:alpine
+RUN npm install -g serve
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+EXPOSE 3000 5000
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+CMD sh -c "node backend/server.js & serve -s public -l 3000"
