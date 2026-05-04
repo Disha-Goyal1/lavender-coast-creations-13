@@ -33,7 +33,9 @@ app.post("/checkout", (req, res) => {
     res.json({
       success: true,
       whatsappUrl,
-      qrCode: `https://api.qrserver.com/v1/create-qr-code/?data=${total}&size=200x200`,
+      const upiUrl = `upi://pay?pa=your-upi-id@okaxis&pn=LavenderCoast&am=${total}&cu=INR`;
+
+qrCode: `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(upiUrl)}&size=200x200`
     });
   } catch (error) {
     console.error("Error:", error);
