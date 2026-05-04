@@ -1,27 +1,31 @@
-# Build frontend
-FROM node:18-alpine as build
+# Step 1: Build frontend
+FROM node:20 AS build
 
 WORKDIR /app
 COPY . .
 RUN npm install
 RUN npm run build
 
-# Run backend + nginx
-FROM node:18-alpine
+# Step 2: Run app
+FROM node:20
 
 WORKDIR /app
 
 # Copy backend
 COPY backend ./backend
+
+# Copy frontend build
+COPY --from=build /app/dist ./public
+
+# Install dependencies
 WORKDIR /app/backend
 RUN npm install
 
-# Copy frontend build
-WORKDIR /app
-COPY --from=build /app/dist ./public
-
+# Install serve
 RUN npm install -g serve
 
+# Expose ports
 EXPOSE 3000 5000
 
-CMD sh -c "node backend/server.js & serve -s public -l 3000"
+# Run both safely
+CMD ["sh", "-c", "node server.js & serve -s /app/public -l 3000"]
