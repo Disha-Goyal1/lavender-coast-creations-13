@@ -108,12 +108,9 @@ const Contact = () => {
             <p className="text-sm text-muted-foreground mt-1">
               Daily stitches, behind-the-scenes, and small joys.
             </p>
-            <div className="mt-4 flex gap-2">
+            <div className="mt-4">
               <Button asChild variant="soft" size="sm">
-                <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
-              </Button>
-              <Button asChild variant="soft" size="sm">
-                <a href={BRAND.pinterest} target="_blank" rel="noopener noreferrer">Pinterest</a>
+                <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer">@the_lavender_coast</a>
               </Button>
             </div>
           </div>

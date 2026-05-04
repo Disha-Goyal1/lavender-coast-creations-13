@@ -6,8 +6,7 @@ export const BRAND = {
   whatsappNumber: "+916200391201", // WhatsApp number (international format)
   upiId: "6200391201@upi",
   upiPayeeName: "Lavender Coast",
-  instagram: "https://instagram.com/",
-  pinterest: "https://pinterest.com/",
+  instagram: "https://www.instagram.com/the_lavender_coast",
   email: "hello@lavendercoast.shop",
 };
 
