@@ -7,29 +7,15 @@ pipeline {
 
     stages {
 
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/Disha-Goyal1/lavender-coast-creations-13.git'
-            }
-        }
-
-        stage('Install Frontend') {
+        stage('Install') {
             steps {
                 sh 'npm install'
             }
         }
 
-        stage('Build Frontend') {
+        stage('Build') {
             steps {
                 sh 'npm run build'
-            }
-        }
-
-        stage('Install Backend') {
-            steps {
-                dir('backend') {
-                    sh 'npm install'
-                }
             }
         }
 
@@ -39,7 +25,7 @@ pipeline {
             }
         }
 
-        stage('Run Container') {
+        stage('Run') {
             steps {
                 sh '''
                 docker stop lavender || true
