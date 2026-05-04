@@ -30,7 +30,7 @@ pipeline {
                 sh '''
                 docker stop lavender || true
                 docker rm lavender || true
-                docker run -d -p 3000:80 --name lavender $IMAGE_NAME
+                docker run -d -p 3000:3000 --name lavender $IMAGE_NAME
                 '''
             }
         }
