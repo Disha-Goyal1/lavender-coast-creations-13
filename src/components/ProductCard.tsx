@@ -55,7 +55,7 @@ export const ProductCard = ({ product, index = 0 }: { product: Product; index?: 
               onClick={(e) => e.stopPropagation()}
             >
               <a
-                href={whatsappLink(`Hi! I'd love to order the ${product.name} (₹${product.price}).`)}
+                href={whatsappLink(`Hi! I'd love to order the ${product.name} (₹${product.price888}).`)}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Order on WhatsApp"
